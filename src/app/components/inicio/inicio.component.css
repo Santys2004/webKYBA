@@ -1,0 +1,98 @@
+.hero {
+  background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 4rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-texto h1 {
+  font-size: 2.8rem;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.hero-texto h1 span { color: #d4a843; }
+
+.hero-texto p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  max-width: 460px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.hero-btns button {
+  padding: 0.7rem 1.6rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #d4a843;
+  color: #0a1628;
+  transition: opacity 0.2s;
+}
+.hero-btns button:hover { opacity: 0.85; }
+.hero-btns .btn-secundario {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: white;
+}
+.hero-btns .btn-secundario:hover { border-color: #d4a843; color: #d4a843; opacity: 1; }
+
+.hero-img {
+  font-size: 8rem;
+  opacity: 0.15;
+}
+
+.como-funciona {
+  padding: 4rem 3rem;
+  text-align: center;
+  background: white;
+}
+.como-funciona h2 {
+  font-size: 1.8rem;
+  color: #0a1628;
+  margin-bottom: 2.5rem;
+}
+
+.pasos {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.paso { max-width: 240px; padding: 1.5rem; }
+.paso-icono { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.paso h3 { font-size: 1rem; color: #0a1628; margin-bottom: 0.5rem; }
+.paso p { font-size: 0.88rem; color: #6b8299; line-height: 1.6; }
+
+.cta {
+  background: #2563a8;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.cta h2 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+.cta p  { opacity: 0.8; margin-bottom: 1.8rem; font-size: 0.95rem; }
+.cta button {
+  background: #d4a843;
+  color: #0a1628;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.cta button:hover { opacity: 0.85; }
+
+@media (max-width: 600px) {
+  .hero { padding: 3rem 1.5rem; }
+  .hero-texto h1 { font-size: 2rem; }
+}
