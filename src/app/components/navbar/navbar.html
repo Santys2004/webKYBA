@@ -1,1 +1,19 @@
-<p>navbar works!</p>
+<nav>
+  <div class="nav-logo" (click)="irA('')">⚓ KYBA</div>
+
+  <div class="nav-links">
+    <a (click)="irA('')">Inicio</a>
+    <a (click)="irA('campanas')">Campañas</a>
+    <a (click)="irA('nosotros')">Nosotros</a>
+  </div>
+
+  <div id="nav-auth" *ngIf="!token">
+    <button class="btn-nav-login" (click)="abrirLogin()">Iniciar sesión</button>
+    <button class="btn-nav-registro" (click)="abrirRegistro()">Registrarse</button>
+  </div>
+
+  <div id="nav-usuario" *ngIf="token">
+    <span id="nav-nombre">👤 {{ nombre }}</span>
+    <button class="btn-nav-logout" (click)="cerrarSesion()">Salir</button>
+  </div>
+</nav>
