@@ -1,0 +1,74 @@
+nav {
+  background: #0a1628;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-logo {
+  color: #d4a843;
+  font-size: 1.15rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: #d4a843; }
+
+#nav-auth { display: flex; gap: 8px; align-items: center; }
+#nav-usuario { display: flex; gap: 10px; align-items: center; }
+
+#nav-nombre {
+  color: #d4a843;
+  font-size: 0.88rem;
+}
+
+.btn-nav-login {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.btn-nav-login:hover { border-color: #d4a843; color: #d4a843; }
+
+.btn-nav-registro {
+  background: #d4a843;
+  color: #0a1628;
+  border: none;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+.btn-nav-registro:hover { opacity: 0.85; }
+
+.btn-nav-logout {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.7);
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.btn-nav-logout:hover { border-color: #c0392b; color: #c0392b; }
