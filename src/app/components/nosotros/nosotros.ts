@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nosotros',
-  imports: [],
-  templateUrl: './nosotros.html',
-  styleUrl: './nosotros.css',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './nosotros.component.html',
+  styleUrl: './nosotros.component.css'
 })
-export class Nosotros {}
+export class NosotrosComponent {}
