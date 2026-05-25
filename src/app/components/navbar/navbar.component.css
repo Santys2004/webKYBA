@@ -72,3 +72,101 @@ nav {
   font-size: 0.85rem;
 }
 .btn-nav-logout:hover { border-color: #c0392b; color: #c0392b; }
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 14px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.modal-box label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #6b8299;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.modal-box input {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 1.5px solid #d0dce8;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.modal-box input:focus { border-color: #2563a8; }
+
+.auth-tabs {
+  display: flex;
+  border-bottom: 2px solid #e0e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #6b8299;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+
+.auth-tab.activo {
+  color: #2563a8;
+  border-bottom-color: #2563a8;
+  font-weight: bold;
+}
+
+.auth-error {
+  color: #c0392b;
+  font-size: 0.82rem;
+  margin-top: 0.4rem;
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.btn-cancelar {
+  background: #eee;
+  color: #555;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn-guardar {
+  background: #d4a843;
+  color: #0a1628;
+  border: none;
+  padding: 0.5rem 1.4rem;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-guardar:hover { opacity: 0.85; }

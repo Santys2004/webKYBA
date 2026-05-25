@@ -17,3 +17,38 @@
     <button class="btn-nav-logout" (click)="cerrarSesion()">Salir</button>
   </div>
 </nav>
+<!-- Modal auth -->
+<div class="modal" *ngIf="modalVisible" (click)="cerrarModalFondo($event)">
+  <div class="modal-box">
+    <div class="auth-tabs">
+      <button class="auth-tab" [class.activo]="tabActivo === 'login'" (click)="switchTab('login')">Iniciar sesión</button>
+      <button class="auth-tab" [class.activo]="tabActivo === 'registro'" (click)="switchTab('registro')">Registrarse</button>
+    </div>
+
+    <div *ngIf="tabActivo === 'login'">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="loginEmail" placeholder="tu@email.com"/>
+      <label>Contraseña</label>
+      <input type="password" [(ngModel)]="loginPassword" placeholder="••••••"/>
+      <div class="auth-error" *ngIf="loginError">{{ loginError }}</div>
+      <div class="modal-btns">
+        <button class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
+        <button class="btn-guardar" (click)="login()">Entrar</button>
+      </div>
+    </div>
+
+    <div *ngIf="tabActivo === 'registro'">
+      <label>Nombre</label>
+      <input type="text" [(ngModel)]="regNombre" placeholder="Tu nombre"/>
+      <label>Email</label>
+      <input type="email" [(ngModel)]="regEmail" placeholder="tu@email.com"/>
+      <label>Contraseña</label>
+      <input type="password" [(ngModel)]="regPassword" placeholder="Mínimo 6 caracteres"/>
+      <div class="auth-error" *ngIf="regError">{{ regError }}</div>
+      <div class="modal-btns">
+        <button class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
+        <button class="btn-guardar" (click)="registro()">Registrarse</button>
+      </div>
+    </div>
+  </div>
+</div>
