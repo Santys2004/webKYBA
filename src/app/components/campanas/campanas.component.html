@@ -29,7 +29,7 @@
       <h3>{{ c.titulo }}</h3>
       <p>{{ c.descripcion }}</p>
       <div class="card-meta">
-        👤 {{ c.creador.nombre }} &nbsp;|&nbsp; Meta: ${{ c.meta | number }}
+        👤 {{ c.creador?.nombre || 'Sin creador' }} &nbsp;|&nbsp; Meta: ${{ c.meta | number }}
       </div>
 
       <div class="barra-fondo">
