@@ -6,13 +6,16 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [],
   templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css'
+  styleUrl: './inicio.component.css',
 })
 export class InicioComponent {
-
   constructor(private router: Router) {}
 
   irACampanas() {
     this.router.navigate(['campanas']);
+  }
+
+  irANosotros() {
+    this.router.navigate(['nosotros']);
   }
 }

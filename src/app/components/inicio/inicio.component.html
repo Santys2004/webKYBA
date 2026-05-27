@@ -1,38 +1,81 @@
 <section class="hero">
   <div class="hero-texto">
-    <h1>Mantén tu <span>proyecto</span> a flote</h1>
-    <p>KYBA es la plataforma donde tus ideas encuentran el apoyo que necesitan. Crea campañas, recibe donaciones y alcanza tus metas.</p>
+    <h1>Mantén tu proyecto<br /><span>a flote</span></h1>
+    <p>
+      Conectamos personas con causas que importan. Financia ideas, ayuda a comunidades y sé parte
+      del cambio.
+    </p>
     <div class="hero-btns">
-      <button (click)="irACampanas()">🚀 Ver campañas</button>
-      <button class="btn-secundario" (click)="irACampanas()">Crear campaña</button>
+      <button (click)="irACampanas()">🤝 Ayuda a alguien</button>
+      <button class="btn-secundario" (click)="irANosotros()">Conócenos</button>
     </div>
   </div>
   <div class="hero-img">⚓</div>
 </section>
 
+<!-- Stats -->
+<section class="stats">
+  <div class="stat">
+    <span class="stat-num">100%</span>
+    <span class="stat-label">Transparente</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">$0</span>
+    <span class="stat-label">Comisión</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">∞</span>
+    <span class="stat-label">Posibilidades</span>
+  </div>
+</section>
+
+<!-- Cómo funciona -->
 <section class="como-funciona">
   <h2>¿Cómo funciona?</h2>
   <div class="pasos">
     <div class="paso">
-      <div class="paso-icono">📝</div>
-      <h3>Crea tu campaña</h3>
-      <p>Describe tu proyecto, establece una meta y sube una imagen que inspire.</p>
+      <div class="paso-icono">📋</div>
+      <h3>1. Crea tu campaña</h3>
+      <p>Registra tu proyecto con una imagen, descripción y meta de financiamiento.</p>
     </div>
     <div class="paso">
       <div class="paso-icono">📢</div>
-      <h3>Comparte</h3>
-      <p>Difunde tu campaña entre amigos, familia y redes sociales.</p>
+      <h3>2. Compártela</h3>
+      <p>Tu campaña queda visible para que otros puedan encontrarla y apoyarla.</p>
     </div>
     <div class="paso">
       <div class="paso-icono">💰</div>
-      <h3>Recibe donaciones</h3>
-      <p>Las personas que crean en tu proyecto podrán apoyarte fácilmente.</p>
+      <h3>3. Recibe apoyo</h3>
+      <p>Las personas donan y tú ves el progreso en tiempo real hacia tu meta.</p>
     </div>
   </div>
 </section>
 
+<!-- Por qué KYBA -->
+<section class="por-que">
+  <h2>¿Por qué KYBA?</h2>
+  <div class="razones">
+    <div class="razon">
+      <div class="razon-icono">🔒</div>
+      <h3>Seguro</h3>
+      <p>Tus datos están protegidos con autenticación JWT y contraseñas encriptadas.</p>
+    </div>
+    <div class="razon">
+      <div class="razon-icono">⚡</div>
+      <h3>Rápido</h3>
+      <p>Crea tu campaña en minutos y empieza a recibir apoyo de inmediato.</p>
+    </div>
+    <div class="razon">
+      <div class="razon-icono">🌎</div>
+      <h3>Para todos</h3>
+      <p>Proyectos sociales, creativos, tecnológicos o personales — todos tienen cabida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="cta">
-  <h2>¿Listo para empezar?</h2>
-  <p>Únete a KYBA y lleva tu proyecto al siguiente nivel.</p>
-  <button (click)="irACampanas()">Comenzar ahora</button>
+  <h2>¿Tienes una causa que merece apoyo?</h2>
+  <p>Lanza tu campaña hoy y conecta con quienes quieren ayudar.</p>
+  <button (click)="irACampanas()">+ Crear campaña</button>
 </section>

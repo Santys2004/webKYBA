@@ -4,8 +4,16 @@
   padding: 4rem 2rem;
   color: white;
 }
-.nosotros-hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
-.nosotros-hero p  { color: rgba(255,255,255,0.7); font-size: 1rem; max-width: 520px; margin: 0 auto; }
+.nosotros-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.nosotros-hero p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
 
 .nosotros-contenido {
   display: flex;
@@ -23,15 +31,30 @@
   border-radius: 10px;
   border: 1px solid #e0e8f0;
 }
-.nosotros-icono { font-size: 2.5rem; margin-bottom: 0.8rem; }
-.nosotros-bloque h3 { font-size: 1rem; color: #0a1628; margin-bottom: 0.5rem; }
-.nosotros-bloque p  { font-size: 0.87rem; color: #6b8299; line-height: 1.6; }
+.nosotros-icono {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+.nosotros-bloque h3 {
+  font-size: 1rem;
+  color: #0a1628;
+  margin-bottom: 0.5rem;
+}
+.nosotros-bloque p {
+  font-size: 0.87rem;
+  color: #6b8299;
+  line-height: 1.6;
+}
 
 .equipo {
   padding: 3rem 2rem;
   text-align: center;
 }
-.equipo h2 { font-size: 1.6rem; color: #0a1628; margin-bottom: 2rem; }
+.equipo h2 {
+  font-size: 1.6rem;
+  color: #0a1628;
+  margin-bottom: 2rem;
+}
 
 .equipo-grid {
   display: flex;
@@ -46,10 +69,20 @@
   padding: 1.5rem 2rem;
   border: 1px solid #e0e8f0;
   min-width: 150px;
+  text-align: center;
+}
+
+.foto-equipo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 0.8rem;
+  border: 3px solid #2563a8;
 }
 
 .avatar-fallback {
-  display: flex;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -62,5 +95,11 @@
   margin: 0 auto 0.8rem;
 }
 
-.miembro h4 { font-size: 0.95rem; color: #0a1628; }
-.miembro span { font-size: 0.8rem; color: #6b8299; }
+.miembro h4 {
+  font-size: 0.95rem;
+  color: #0a1628;
+}
+.miembro span {
+  font-size: 0.8rem;
+  color: #6b8299;
+}

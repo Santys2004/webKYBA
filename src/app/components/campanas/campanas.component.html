@@ -1,7 +1,9 @@
 <div class="campanas-header">
   <div>
-    <h2>🌊 Campañas <span>{{ campanas.length }}</span></h2>
-    <p>Apoya proyectos que necesitan tu ayuda</p>
+    <h2>
+      🌊 Campañas activas <span>{{ campanas.length }}</span>
+    </h2>
+    <p>Encuentra una causa y haz tu aporte</p>
   </div>
   <div class="campanas-header-btns">
     <button class="btn-nueva" (click)="abrirModal()">+ Nueva campaña</button>
@@ -10,19 +12,32 @@
 
 <div class="lista-campanas">
   <div *ngIf="cargando" class="vacio">🌊 Cargando campañas...</div>
-  <div *ngIf="!cargando && campanas.length === 0" class="vacio">🌊 No hay campañas todavía. ¡Crea la primera!</div>
+  <div *ngIf="!cargando && campanas.length === 0" class="vacio">
+    🌊 No hay campañas todavía. ¡Crea la primera!
+  </div>
 
   <div class="campana-card" *ngFor="let c of campanas">
-    <img *ngIf="c.imagen" class="card-imagen" [src]="'http://localhost:3000' + c.imagen" [alt]="c.titulo"/>
+    <img
+      *ngIf="c.imagen"
+      class="card-imagen"
+      [src]="'http://localhost:3000' + c.imagen"
+      [alt]="c.titulo"
+    />
     <div *ngIf="!c.imagen" class="card-imagen-placeholder">⚓</div>
 
     <div class="card-body">
       <h3>{{ c.titulo }}</h3>
       <p>{{ c.descripcion }}</p>
-      <div class="card-meta">👤 {{ c.creador.nombre }} &nbsp;|&nbsp; Meta: ${{ c.meta | number }}</div>
+      <div class="card-meta">
+        👤 {{ c.creador.nombre }} &nbsp;|&nbsp; Meta: ${{ c.meta | number }}
+      </div>
 
       <div class="barra-fondo">
-        <div class="barra-fill" [class.completa]="getPct(c) >= 100" [style.width.%]="getPct(c)"></div>
+        <div
+          class="barra-fill"
+          [class.completa]="getPct(c) >= 100"
+          [style.width.%]="getPct(c)"
+        ></div>
       </div>
       <div class="pct-texto">
         ${{ c.monto_recaudado | number }} recaudados — {{ getPct(c) }}%
@@ -30,42 +45,61 @@
       </div>
 
       <div class="card-btns">
+        <!-- toggleDonar ahora verifica sesión antes de abrir -->
         <button class="btn-donar" (click)="toggleDonar(c._id)">💰 Donar</button>
         <button class="btn-eliminar" (click)="eliminar(c._id)">🗑</button>
       </div>
 
       <div class="donate-row" [class.open]="donarAbierto === c._id">
-        <input type="number" [(ngModel)]="montoDonacion" placeholder="Monto $" min="1"/>
+        <input type="number" [(ngModel)]="montoDonacion" placeholder="Monto $" min="1" />
         <button class="btn-confirmar" (click)="donar(c._id)">✓</button>
-        <button class="btn-cancelar-d" (click)="toggleDonar(c._id)">✕</button>
+        <button class="btn-cancelar-d" (click)="donarAbierto = null">✕</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Modal nueva campaña -->
-<div class="modal" [class.hidden]="!modalAbierto" (click)="cerrarModalFondo($event)">
+<div class="modal" *ngIf="modalAbierto" (click)="cerrarModalFondo($event)">
   <div class="modal-box">
     <h2>Nueva campaña</h2>
-    <label>Nombre</label>
-    <input type="text" [(ngModel)]="form.nombre" placeholder="Nombre de la campaña"/>
-    <label>Descripción</label>
-    <textarea [(ngModel)]="form.descripcion" placeholder="Describe tu campaña..." maxlength="150"></textarea>
-    <label>Meta ($)</label>
-    <input type="number" [(ngModel)]="form.meta" placeholder="Ej: 1000"/>
+
+    <label>Nombre *</label>
+    <input type="text" [(ngModel)]="form.nombre" placeholder="Nombre de la campaña" />
+
+    <label>Descripción * ({{ form.descripcion.length }}/150)</label>
+    <textarea
+      [(ngModel)]="form.descripcion"
+      placeholder="Describe tu campaña..."
+      maxlength="150"
+    ></textarea>
+
+    <label>Meta ($) * — mínimo $100</label>
+    <input type="number" [(ngModel)]="form.meta" placeholder="Ej: 1000" min="100" />
+
     <label>Imagen</label>
     <div class="upload-area" (click)="fileInput.click()">
       <div *ngIf="!previewUrl">
         <span>🖼️</span>
         <p>Haz clic para subir una imagen</p>
       </div>
-      <img *ngIf="previewUrl" [src]="previewUrl" style="width:100%;max-height:200px;object-fit:cover;border-radius:7px"/>
+      <img
+        *ngIf="previewUrl"
+        [src]="previewUrl"
+        style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 7px"
+      />
     </div>
-    <input #fileInput type="file" accept="image/*" style="display:none" (change)="previewImagen($event)"/>
+    <input
+      #fileInput
+      type="file"
+      accept="image/*"
+      style="display: none"
+      (change)="previewImagen($event)"
+    />
 
     <div class="modal-btns">
       <button class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
-      <button class="btn-guardar" (click)="guardarCampana()">Guardar</button>
+      <button class="btn-guardar" (click)="guardarCampana()">Lanzar campaña</button>
     </div>
   </div>
 </div>

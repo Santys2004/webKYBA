@@ -6,6 +6,13 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './nosotros.component.html',
-  styleUrl: './nosotros.component.css'
+  styleUrl: './nosotros.component.css',
 })
-export class NosotrosComponent {}
+export class NosotrosComponent {
+  onImgError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.style.display = 'none';
+    const fallback = img.nextElementSibling as HTMLElement;
+    if (fallback) fallback.style.display = 'flex';
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
@@ -8,10 +8,9 @@ import { ApiService } from '../../services/api.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './campanas.component.html',
-  styleUrl: './campanas.component.css'
+  styleUrl: './campanas.component.css',
 })
 export class CampanasComponent implements OnInit {
-
   campanas: any[] = [];
   cargando = true;
   modalAbierto = false;
@@ -23,10 +22,13 @@ export class CampanasComponent implements OnInit {
   form = {
     nombre: '',
     descripcion: '',
-    meta: null
+    meta: null as number | null,
   };
 
-  constructor(private api: ApiService) {}
+  constructor(
+    private api: ApiService,
+    private cd: ChangeDetectorRef,
+  ) {}
 
   ngOnInit() {
     this.cargarCampanas();
@@ -38,10 +40,12 @@ export class CampanasComponent implements OnInit {
       next: (data) => {
         this.campanas = data;
         this.cargando = false;
+        this.cd.detectChanges(); // ← nuevo
       },
       error: () => {
         this.cargando = false;
-      }
+        this.cd.detectChanges(); // ← nuevo
+      },
     });
   }
 
@@ -49,10 +53,11 @@ export class CampanasComponent implements OnInit {
     return Math.min(100, Math.round((c.monto_recaudado / c.meta) * 100));
   }
 
+  // — Abrir modal solo si hay sesión, si no abre el modal de login
   abrirModal() {
     const token = localStorage.getItem('kyba_token');
     if (!token) {
-      alert('Debes iniciar sesión para crear una campaña');
+      window.dispatchEvent(new CustomEvent('abrirLogin'));
       return;
     }
     this.modalAbierto = true;
@@ -74,7 +79,7 @@ export class CampanasComponent implements OnInit {
     if (!archivo) return;
     this.imagenArchivo = archivo;
     const reader = new FileReader();
-    reader.onload = (e: any) => this.previewUrl = e.target.result;
+    reader.onload = (e: any) => (this.previewUrl = e.target.result);
     reader.readAsDataURL(archivo);
   }
 
@@ -83,6 +88,17 @@ export class CampanasComponent implements OnInit {
       alert('Por favor completa todos los campos');
       return;
     }
+    // Validación meta mínima
+    if (this.form.meta < 100) {
+      alert('La meta mínima es $100');
+      return;
+    }
+    // Validación descripción máxima
+    if (this.form.descripcion.length > 150) {
+      alert('La descripción no puede superar 150 caracteres');
+      return;
+    }
+
     const formData = new FormData();
     formData.append('titulo', this.form.nombre);
     formData.append('descripcion', this.form.descripcion);
@@ -94,11 +110,17 @@ export class CampanasComponent implements OnInit {
         this.cerrarModal();
         this.cargarCampanas();
       },
-      error: () => alert('Error al crear campaña')
+      error: () => alert('Error al crear campaña'),
     });
   }
 
+  // — Donar solo si hay sesión
   toggleDonar(id: string) {
+    const token = localStorage.getItem('kyba_token');
+    if (!token) {
+      window.dispatchEvent(new CustomEvent('abrirLogin'));
+      return;
+    }
     this.donarAbierto = this.donarAbierto === id ? null : id;
     this.montoDonacion = 0;
   }
@@ -110,10 +132,10 @@ export class CampanasComponent implements OnInit {
     }
     this.api.donar(id, this.montoDonacion).subscribe({
       next: () => {
-        this.toggleDonar(id);
+        this.donarAbierto = null;
         this.cargarCampanas();
       },
-      error: () => alert('Error al donar')
+      error: () => alert('Error al donar'),
     });
   }
 
@@ -121,7 +143,7 @@ export class CampanasComponent implements OnInit {
     if (!confirm('¿Seguro que quieres eliminar esta campaña?')) return;
     this.api.eliminar(id).subscribe({
       next: () => this.cargarCampanas(),
-      error: () => alert('Error al eliminar')
+      error: () => alert('No tienes permiso para eliminar esta campaña'),
     });
   }
 }

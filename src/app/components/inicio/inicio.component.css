@@ -14,17 +14,23 @@
   line-height: 1.2;
   margin-bottom: 1rem;
 }
-.hero-texto h1 span { color: #d4a843; }
+.hero-texto h1 span {
+  color: #d4a843;
+}
 
 .hero-texto p {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
   max-width: 460px;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
 
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
 .hero-btns button {
   padding: 0.7rem 1.6rem;
@@ -37,19 +43,56 @@
   color: #0a1628;
   transition: opacity 0.2s;
 }
-.hero-btns button:hover { opacity: 0.85; }
+.hero-btns button:hover {
+  opacity: 0.85;
+}
 .hero-btns .btn-secundario {
   background: transparent;
-  border: 2px solid rgba(255,255,255,0.4);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   color: white;
 }
-.hero-btns .btn-secundario:hover { border-color: #d4a843; color: #d4a843; opacity: 1; }
+.hero-btns .btn-secundario:hover {
+  border-color: #d4a843;
+  color: #d4a843;
+  opacity: 1;
+}
 
 .hero-img {
   font-size: 8rem;
   opacity: 0.15;
 }
 
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2.5rem 2rem;
+  background: #0a1628;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d4a843;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Cómo funciona */
 .como-funciona {
   padding: 4rem 3rem;
   text-align: center;
@@ -67,19 +110,83 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-.paso { max-width: 240px; padding: 1.5rem; }
-.paso-icono { font-size: 2.5rem; margin-bottom: 0.8rem; }
-.paso h3 { font-size: 1rem; color: #0a1628; margin-bottom: 0.5rem; }
-.paso p { font-size: 0.88rem; color: #6b8299; line-height: 1.6; }
+.paso {
+  max-width: 240px;
+  padding: 1.5rem;
+}
+.paso-icono {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+.paso h3 {
+  font-size: 1rem;
+  color: #0a1628;
+  margin-bottom: 0.5rem;
+}
+.paso p {
+  font-size: 0.88rem;
+  color: #6b8299;
+  line-height: 1.6;
+}
 
+/* Por qué KYBA */
+.por-que {
+  padding: 4rem 3rem;
+  text-align: center;
+  background: #f0f4f8;
+}
+.por-que h2 {
+  font-size: 1.8rem;
+  color: #0a1628;
+  margin-bottom: 2.5rem;
+}
+
+.razones {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.razon {
+  max-width: 240px;
+  padding: 2rem 1.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.razon-icono {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+.razon h3 {
+  font-size: 1rem;
+  color: #0a1628;
+  margin-bottom: 0.5rem;
+}
+.razon p {
+  font-size: 0.88rem;
+  color: #6b8299;
+  line-height: 1.6;
+}
+
+/* CTA */
 .cta {
   background: #2563a8;
   color: white;
   text-align: center;
   padding: 4rem 2rem;
 }
-.cta h2 { font-size: 1.7rem; margin-bottom: 0.8rem; }
-.cta p  { opacity: 0.8; margin-bottom: 1.8rem; font-size: 0.95rem; }
+.cta h2 {
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+}
+.cta p {
+  opacity: 0.8;
+  margin-bottom: 1.8rem;
+  font-size: 0.95rem;
+}
 .cta button {
   background: #d4a843;
   color: #0a1628;
@@ -90,9 +197,18 @@
   font-weight: bold;
   cursor: pointer;
 }
-.cta button:hover { opacity: 0.85; }
+.cta button:hover {
+  opacity: 0.85;
+}
 
 @media (max-width: 600px) {
-  .hero { padding: 3rem 1.5rem; }
-  .hero-texto h1 { font-size: 2rem; }
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+  .hero-texto h1 {
+    font-size: 2rem;
+  }
+  .stats {
+    gap: 2rem;
+  }
 }

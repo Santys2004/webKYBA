@@ -1,5 +1,5 @@
 <nav>
-  <div class="nav-logo" (click)="irA('')">⚓ KYBA</div>
+  <div class="nav-logo" (click)="irA('')">⚓ Keep Your Boat Afloat</div>
 
   <div class="nav-links">
     <a (click)="irA('')">Inicio</a>
@@ -21,15 +21,23 @@
 <div class="modal" *ngIf="modalVisible" (click)="cerrarModalFondo($event)">
   <div class="modal-box">
     <div class="auth-tabs">
-      <button class="auth-tab" [class.activo]="tabActivo === 'login'" (click)="switchTab('login')">Iniciar sesión</button>
-      <button class="auth-tab" [class.activo]="tabActivo === 'registro'" (click)="switchTab('registro')">Registrarse</button>
+      <button class="auth-tab" [class.activo]="tabActivo === 'login'" (click)="switchTab('login')">
+        Iniciar sesión
+      </button>
+      <button
+        class="auth-tab"
+        [class.activo]="tabActivo === 'registro'"
+        (click)="switchTab('registro')"
+      >
+        Registrarse
+      </button>
     </div>
 
     <div *ngIf="tabActivo === 'login'">
       <label>Email</label>
-      <input type="email" [(ngModel)]="loginEmail" placeholder="tu@email.com"/>
+      <input type="email" [(ngModel)]="loginEmail" placeholder="tu@email.com" />
       <label>Contraseña</label>
-      <input type="password" [(ngModel)]="loginPassword" placeholder="••••••"/>
+      <input type="password" [(ngModel)]="loginPassword" placeholder="••••••" />
       <div class="auth-error" *ngIf="loginError">{{ loginError }}</div>
       <div class="modal-btns">
         <button class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
@@ -39,11 +47,11 @@
 
     <div *ngIf="tabActivo === 'registro'">
       <label>Nombre</label>
-      <input type="text" [(ngModel)]="regNombre" placeholder="Tu nombre"/>
+      <input type="text" [(ngModel)]="regNombre" placeholder="Tu nombre" />
       <label>Email</label>
-      <input type="email" [(ngModel)]="regEmail" placeholder="tu@email.com"/>
+      <input type="email" [(ngModel)]="regEmail" placeholder="tu@email.com" />
       <label>Contraseña</label>
-      <input type="password" [(ngModel)]="regPassword" placeholder="Mínimo 6 caracteres"/>
+      <input type="password" [(ngModel)]="regPassword" placeholder="Mínimo 6 caracteres" />
       <div class="auth-error" *ngIf="regError">{{ regError }}</div>
       <div class="modal-btns">
         <button class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
